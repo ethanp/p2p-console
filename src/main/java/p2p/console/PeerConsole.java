@@ -35,7 +35,7 @@ public class PeerConsole extends Thread {
             "\nCommands:\n" +
             "set tracker <trackerIP>\n" +
             "list\n" +
-            "upload <filename>\n" +
+            "track <filename>\n" +
             "download <listNo>\n" +
             "quit\n";
 
@@ -81,7 +81,7 @@ public class PeerConsole extends Thread {
                 }
                 printListResult(trkrLstg);
             }
-            else if (uploadCmd(cmd)) {
+            else if (trackCmd(cmd)) {
                 if (parts.length != 2) {
                     System.out.println("wrong format, try again");
                     continue;
@@ -171,10 +171,9 @@ public class PeerConsole extends Thread {
 
     boolean setTrackerCmd(String cmd) { return cmd.startsWith("set tracker"); }
     boolean listCmd(String cmd)       { return cmd.startsWith("list");        }
-    boolean uploadCmd(String cmd)     { return cmd.startsWith("upload");      }
+    boolean trackCmd(String cmd)      { return cmd.startsWith("track");       }
     boolean downloadCmd(String cmd)   { return cmd.startsWith("download");    }
     boolean quitCmd(String cmd)       { return cmd.startsWith("quit");        }
-    boolean in(int v, int s, int l)   { return s <= v && v <= l;              }
 
     void printListResult(List<P2PFileMetadata> metaList) {
         if (metaList.isEmpty()) {

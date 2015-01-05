@@ -26,7 +26,7 @@ Run a second instance of `Console`, and in it type
 
     $ peer
     $ set tracker <console:ipAddr>   # (from above)
-    $ upload asdfile
+    $ track asdfile
 
 Run a third instance of `Console`, and in it type
 

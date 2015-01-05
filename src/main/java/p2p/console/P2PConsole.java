@@ -1,23 +1,9 @@
 package p2p.console;
 
-import p2p.Common;
 import p2p.Tracker;
-import p2p.exceptions.MetadataMismatchException;
-import p2p.exceptions.SwarmNotFoundException;
-import p2p.file.P2PFile;
-import p2p.file.P2PFileMetadata;
 import p2p.peer.Peer;
 
-import java.io.FileNotFoundException;
-import java.net.ConnectException;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.UnknownHostException;
-import java.nio.file.FileSystemException;
-import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeoutException;
 
 /**
  * Ethan Petuchowski 1/4/15
