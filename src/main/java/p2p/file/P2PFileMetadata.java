@@ -12,17 +12,11 @@ public class P2PFileMetadata implements Comparable<P2PFileMetadata>, Serializabl
 
     static final Logger log = LogManager.getLogger(P2PFileMetadata.class.getName());
 
-    String filename;
-
-    /* Allowing for multiple tracker URLs is probably easy, and left for future work */
-    InetSocketAddress trackerAddr;
-
-    /* this is the thing you have to be able to obtain in a trustworthy manner */
-    byte[] sha2Digest;
-
-    /* not used for metadata equality */
-    long numBytes = -1;
-    int numChunks = -1;
+    String              filename;
+    InetSocketAddress   trackerAddr;        /* Allowing multiple trackers is left for future work */
+    byte[]              sha2Digest;         /* you must obtain this in a trustworthy manner */
+    long                numBytes = -1;      /* not used for metadata equality */
+    int                 numChunks = -1;
 
     public String getFilename() { return filename; }
     public void setFilename(String filename) { this.filename = filename; }

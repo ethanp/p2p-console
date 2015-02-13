@@ -24,13 +24,12 @@ public class PeerListener extends Thread {
     ServerSocket listener;
     Peer thisPeer;
 
-
     public PeerListener(Peer thisPeer) { this.thisPeer = thisPeer; }
 
     @Override
     public void run() {
 
-        ExecutorService threadPool = Executors.newFixedThreadPool(50);
+        ExecutorService threadPool = Executors.newFixedThreadPool(30);
 
         // "0" finds a free port: stackoverflow.com/questions/2675362
         // and I was using that, but I just set my router to forward 3-3.5K to me

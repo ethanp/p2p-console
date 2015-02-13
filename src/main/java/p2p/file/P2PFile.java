@@ -50,12 +50,11 @@ public class P2PFile implements Comparable<P2PFile> {
         metadata = new P2PFileMetadata(filename, trackerAddr, shaDigest);
 
         File fileRef = new File(filename);
-        if (!fileRef.exists())
-            throw new FileSystemException("file doesn't exist");
-        if (fileRef.isDirectory())
-            throw new FileSystemException("directories are not supported at this time");
-        if (!fileRef.canRead())
-            throw new FileSystemException("file doesn't have read permissions");
+
+        /* from less to more specific */
+        if (!fileRef.exists())      throw new FileSystemException("file doesn't exist");
+        if (fileRef.isDirectory())  throw new FileSystemException("directories are not supported");
+        if (!fileRef.canRead())     throw new FileSystemException("File requires read permissions");
 
         metadata.numBytes = fileRef.length();
         metadata.numChunks = (int) Math.ceil((double) metadata.numBytes / Chunk.BYTES_PER_CHUNK);

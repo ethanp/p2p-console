@@ -117,7 +117,6 @@ public class P2PDownload implements Callable<P2PFile> {
             throws TimeoutException, InterruptedException, ExecutionException,
                    SwarmNotFoundException, MetadataMismatchException
     {
-
         List<Chunk> ofFile = new ArrayList<>();
 
         /* really no good reason to do it this way... */
@@ -128,8 +127,7 @@ public class P2PDownload implements Callable<P2PFile> {
             if (ofFile.size() == numChunks) break;
         }
 
-        if (ofFile.size() != numChunks)
-            throw new TimeoutException();
+        if (ofFile.size() != numChunks) throw new TimeoutException();
 
         return new P2PFile(meta, ofFile);
     }

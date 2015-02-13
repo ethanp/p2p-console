@@ -77,7 +77,12 @@ public class P2PDownloadTest extends BaseTest {
     @Test
     public void testBigFileDownload() throws Exception {
         P2PFile oFile = shareLargeFile();
+
+        long startTime = System.nanoTime();
         P2PFile dFile = new P2PDownload(peer2, oFile.metadata, peer2.trkAddr).call();
+        long endTime = System.nanoTime();
+        long milliSecs = (endTime - startTime) / 1_000_000;
+        System.out.printf("download took %d ms\n", milliSecs);
         assertEquals(oFile, dFile);
     }
 
@@ -87,7 +92,11 @@ public class P2PDownloadTest extends BaseTest {
         Peer peer3 = new Peer(tracker.getInetSocketAddr());
         peer3.shareFile(VIRGINIA_FILENAME);
 
+        long startTime = System.nanoTime();
         P2PFile dFile = new P2PDownload(peer2, oFile.metadata, peer2.trkAddr).call();
+        long endTime = System.nanoTime();
+        long milliSecs = (endTime - startTime) / 1_000_000;
+        System.out.printf("download took %d ms\n", milliSecs);
         assertEquals(oFile, dFile);
     }
 }

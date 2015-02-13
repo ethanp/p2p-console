@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 public class Chunk implements Serializable {
-    static final int BYTES_PER_CHUNK = 1 << 10; // 1KB
+    static final int BYTES_PER_CHUNK = 1 << 15; // 32KB
     byte[] data;
     int numBytes;
     public int idx;

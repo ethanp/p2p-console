@@ -163,10 +163,9 @@ public class Peer {
         catch (EOFException e) {
             log.info("done receiving file list");
         }
-        catch (ConnectException e) { throw e; }
         catch(IOException | ClassNotFoundException e){ e.printStackTrace(); }
-            return theListing;
-        }
+        return theListing;
+    }
 
     /**
      * Download P2PFile from this Peer's saved Tracker.

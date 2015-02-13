@@ -17,6 +17,9 @@ as I go.* It is based on how BitTorrent works.
 
 ## A sample session
 
+> NOTE: You may first have to set your router to forward ports 3000 through
+> 3500 to you
+
 Run an instance of `Console`, and in it type
 
     $ console
@@ -74,6 +77,7 @@ appreciate that it works though.
 9. Prefer downloading from peers who in the past have had fast download times
 10. Download from peers who don't have complete copies of the file
     * This is more than halfway-implemented already
+11. Add a gui interface, using JavaFX
 
 ## Glossary Mapping
 
